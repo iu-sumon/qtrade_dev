@@ -3,7 +3,15 @@
     "tabEnableClose": true,
     "tabEnableRename": true,
     "tabSetEnableMaximize": true,
-    "tabSetEnableDivide": true
+    "tabSetEnableDivide": true,
+    "tabEnablePopout": true,
+    "splitterEnableHandle": true,
+    "tabSetEnableActiveIcon": true,
+    "tabSetMinWidth": 130,
+    "tabSetMinHeight": 100,
+    "tabSetEnableTabScrollbar": true,
+    "borderMinSize": 100,
+    "borderEnableTabScrollbar": true
   },
   "borders": [
     {
@@ -24,31 +32,49 @@
     "weight": 100,
     "children": [
       {
-        "type": "tabset",
-        "weight": 20,
-        "selected": 0,
+        "type": "row",
+        "weight": 70,
         "children": [
           {
-            "type": "tab",
-            "name": "Watchlist",
-            "component": "watchlist"
+            "type": "tabset",
+            "weight": 50,
+            "selected": 0,
+            "children": [
+              {
+                "type": "tab",
+                "name": "Watchlist",
+                "component": "watchlist"
+              }
+            ]
+          },
+          {
+            "type": "tabset",
+            "weight": 50,
+            "selected": 0,
+            "children": [
+              {
+                "type": "tab",
+                "name": "Chart",
+                "component": "chart"
+              },
+              {
+                "type": "tab",
+                "name": "Market Watch",
+                "component": "marketWatch"
+              }
+            ]
           }
         ]
       },
       {
         "type": "tabset",
-        "weight": 80,
+        "weight": 30,
         "selected": 0,
         "children": [
           {
             "type": "tab",
-            "name": "Chart",
-            "component": "chart"
-          },
-          {
-            "type": "tab",
-            "name": "Market Watch",
-            "component": "marketWatch"
+            "name": "Order Book",
+            "component": "orderBook"
           }
         ]
       }

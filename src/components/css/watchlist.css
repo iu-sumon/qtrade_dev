@@ -1,0 +1,9 @@
+.flash-green {
+  background-color: #d4edda !important;
+  transition: background-color 0.5s ease;
+}
+
+.flash-red {
+  background-color: #f8d7da !important;
+  transition: background-color 0.5s ease;
+}
