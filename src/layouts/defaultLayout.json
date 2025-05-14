@@ -1,0 +1,57 @@
+{
+  "global": {
+    "tabEnableClose": true,
+    "tabEnableRename": true,
+    "tabSetEnableMaximize": true,
+    "tabSetEnableDivide": true
+  },
+  "borders": [
+    {
+      "type": "border",
+      "location": "bottom",
+      "size": 200,
+      "children": [
+        {
+          "type": "tab",
+          "name": "Market Depth",
+          "component": "marketDepth"
+        }
+      ]
+    }
+  ],
+  "layout": {
+    "type": "row",
+    "weight": 100,
+    "children": [
+      {
+        "type": "tabset",
+        "weight": 20,
+        "selected": 0,
+        "children": [
+          {
+            "type": "tab",
+            "name": "Watchlist",
+            "component": "watchlist"
+          }
+        ]
+      },
+      {
+        "type": "tabset",
+        "weight": 80,
+        "selected": 0,
+        "children": [
+          {
+            "type": "tab",
+            "name": "Chart",
+            "component": "chart"
+          },
+          {
+            "type": "tab",
+            "name": "Market Watch",
+            "component": "marketWatch"
+          }
+        ]
+      }
+    ]
+  }
+}
