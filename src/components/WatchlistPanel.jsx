@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import './css/watchlist.css'
+import './css/watchlist.css';
 
 const initialSymbols = ['AAPL', 'GOOG', 'MSFT', 'AMZN', 'TSLA'];
 
@@ -10,8 +10,8 @@ const generateRandomRow = (symbol) => {
   const randomValue = (range) => parseFloat((Math.random() * range).toFixed(2));
 
   return {
-    id: symbol,
-    symbol,
+    id: symbol.toUpperCase(),
+    symbol: symbol.toUpperCase(),
     ltp: basePrice,
     change: randomValue(20),
     changePercent: randomPercentage(),
@@ -68,6 +68,8 @@ const columns = [
 const WatchlistPanel = () => {
   const [rows, setRows] = useState(initialSymbols.map(generateRandomRow));
   const [flashingCells, setFlashingCells] = useState({});
+  const [newSymbol, setNewSymbol] = useState('');
+  const [searchSymbol, setSearchSymbol] = useState('');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -89,24 +91,67 @@ const WatchlistPanel = () => {
 
       setTimeout(() => {
         setFlashingCells({});
-      }, 300); // Flash duration
-    }, 5000); // Update every 1 second
+      }, 300);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
+  const handleAddSymbol = () => {
+    const upperSymbol = newSymbol.toUpperCase();
+    if (!rows.find((row) => row.symbol === upperSymbol)) {
+      setRows([...rows, generateRandomRow(upperSymbol)]);
+    }
+    setNewSymbol('');
+  };
+
+  const filteredRows = rows.filter((row) =>
+    row.symbol.toLowerCase().includes(searchSymbol.toLowerCase())
+  );
+
   return (
-    <div style={{ height: 600, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        getCellClassName={({ id, field }) =>
-          flashingCells[`${id}-${field}`] || ''
-        }
-        density="compact"
-        hideFooter
-        disableColumnMenu
-      />
+    <div className="watchlist-container">
+      <div className="input-container">
+        <input
+          type="text"
+          placeholder="Add Symbol (e.g. NFLX)"
+          value={newSymbol}
+          onChange={(e) => setNewSymbol(e.target.value)}
+          className="watchlist-input"
+        />
+       <button
+        onClick={handleAddSymbol}
+        className="watchlist-button"
+        disabled={
+          !newSymbol.trim() ||
+          rows.some((row) => row.symbol === newSymbol.toUpperCase())
+          }
+         >
+          Add
+         </button>
+
+
+        <input
+          type="text"
+          placeholder="Search Symbol"
+          value={searchSymbol}
+          onChange={(e) => setSearchSymbol(e.target.value)}
+          className="watchlist-input search-input"
+        />
+      </div>
+
+      <div style={{ height: 600, width: '100%' }}>
+        <DataGrid
+          rows={filteredRows}
+          columns={columns}
+          getCellClassName={({ id, field }) =>
+            flashingCells[`${id}-${field}`] || ''
+          }
+          density="compact"
+          hideFooter
+          disableColumnMenu
+        />
+      </div>
     </div>
   );
 };
