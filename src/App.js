@@ -9,6 +9,7 @@ import MarketWatchPanel from './components/MarketWatchPanel';
 import MarketDepthPanel from './components/MarketDepthPanel';
 import QuotePanel from './components/QuotePanel';
 import NewsPanel from './components/NewsPanel';
+import TestPanel from  './components/TestPanel';
 import Toolbar from './components/Toolbar';
 import { MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 
@@ -44,6 +45,11 @@ const panelConfigs = {
     name: "News",
     component: "news",
     factory: () => <NewsPanel />
+  },
+  count: {
+    name: "Count",
+    component: "count",
+    factory: () => <TestPanel />
   }
 };
 
