@@ -1,13 +1,15 @@
 .app-container {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
   width: 100vw;
+  background-color: var(--bg-color);
+  color: var(--text-color); 
 }
 
 .layout-container {
-  flex: 1;
   position: relative;
+  flex: 1;
+  background-color: var(--panel-bg);
+  height: 100vh;
 }
 
 .flexlayout__layout {
@@ -32,4 +34,64 @@
 
 .flexlayout__border {
   background-color: #f0f0f0;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --panel-bg: #f5f5f5;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+  --panel-bg: #1f1f1f;
+}
+
+.app-container {
+ 
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: var(--panel-bg);
+}
+
+
+.sidebar {
+  width: 200px;
+  background-color: #20232a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+}
+
+.sidebar-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: #2c313c;
+}
+
+.sidebar-item.active {
+  background-color: #4a90e2;
+}
+
+.main-content {
+  background-color: #f5f5f5;
+  overflow: auto;
+}
+
+.section-placeholder {
+  padding: 20px;
+  font-size: 18px;
 }

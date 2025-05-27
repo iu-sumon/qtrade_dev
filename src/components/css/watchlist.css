@@ -2,7 +2,7 @@
 
 .watchlist-container {
   padding: 5px;
-  background-color: #f8f9fa;
+  background-color: var(--bg-color);
   min-height: 100vh;
 }
 

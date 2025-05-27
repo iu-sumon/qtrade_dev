@@ -140,7 +140,7 @@ const WatchlistPanel = () => {
         />
       </div>
 
-      <div style={{ height: 600, width: '100%' }}>
+      <div style={{width: '100%' }}>
         <DataGrid
           rows={filteredRows}
           columns={columns}

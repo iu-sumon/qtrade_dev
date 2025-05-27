@@ -1,16 +1,35 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../components/Theme/ThemeContext';
+import { IconButton, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-const AppToolbar = () => {
+const Toolbar = ({ panelConfigs, selectedPanel, setSelectedPanel, addNewTab }) => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Trading Dashboard
-        </Typography>
-      </Toolbar>
-    </AppBar>
+    <div className="toolbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', backgroundColor: '#f5f5f5' }}>
+      
+      <FormControl variant="outlined" size="small" style={{ width: 200 }}>
+        <InputLabel>Add Panel</InputLabel>
+        <Select
+          value={selectedPanel}
+          onChange={(e) => setSelectedPanel(e.target.value)}
+          label="Add Panel"
+          onClose={addNewTab}
+        >
+          <MenuItem value=""><em>Select a panel</em></MenuItem>
+          {Object.keys(panelConfigs).map(key => (
+            <MenuItem key={key} value={key}>{panelConfigs[key].name}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      <IconButton onClick={toggleTheme} color="inherit">
+        {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+    </div>
   );
 };
 
-export default AppToolbar;
+export default Toolbar;
