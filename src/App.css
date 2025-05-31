@@ -2,7 +2,7 @@
   display: flex;
   width: 100vw;
   background-color: var(--bg-color);
-  color: var(--text-color); 
+  color: var(--text-color);
 }
 
 .layout-container {
@@ -42,23 +42,21 @@
   --panel-bg: #f5f5f5;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
   --bg-color: #121212;
   --text-color: #ffffff;
   --panel-bg: #1f1f1f;
 }
 
 .app-container {
- 
 }
 
-.toolbar {
+.Topbar {
   display: flex;
   justify-content: flex-end;
   padding: 10px;
   background-color: var(--panel-bg);
 }
-
 
 .sidebar {
   width: 200px;

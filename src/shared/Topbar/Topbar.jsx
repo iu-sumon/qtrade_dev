@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../components/Theme/ThemeContext';
-import { IconButton, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { FormControl, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
+import { useContext } from 'react';
+import { ThemeContext } from '../../components/Theme/ThemeContext';
 
-const Toolbar = ({ panelConfigs, selectedPanel, setSelectedPanel, addNewTab }) => {
+const Topbar = ({ panelConfigs, selectedPanel, setSelectedPanel, addNewTab }) => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <div className="toolbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', backgroundColor: '#f5f5f5' }}>
+    <div className="Topbar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 16px', backgroundColor: '#f5f5f5' }}>
       
       <FormControl variant="outlined" size="small" style={{ width: 200 }}>
         <InputLabel>Add Panel</InputLabel>
@@ -32,4 +32,4 @@ const Toolbar = ({ panelConfigs, selectedPanel, setSelectedPanel, addNewTab }) =
   );
 };
 
-export default Toolbar;
+export default Topbar;

@@ -1,0 +1,219 @@
+.login-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('https://cdn.vectorstock.com/i/500p/14/89/world-business-graph-or-stock-market-chart-vector-45511489.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 5px;
+}
+
+.login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 15, 40, 0.85);
+  z-index: 0;
+}
+
+.login-header,
+.login-center,
+.login-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0px;
+}
+
+
+.status-info, .market-status {
+  display: flex;
+  gap: 20px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.status-label {
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.status-indicator {
+  font-weight: 500;
+}
+
+.status-indicator.active {
+  color: #00e676;
+}
+
+.status-indicator.inactive {
+  color: #ff5252;
+}
+
+.login-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding: 15px 0 0 0;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(19, 28, 46, 0.8);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.login-title {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.form-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.input-icon {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  border-right: none;
+}
+
+.form-input {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px;
+  border-left: none;
+}
+
+.form-input:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+  box-shadow: none;
+  border-color: rgba(0, 230, 118, 0.4);
+}
+
+.remember-me {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.remember-me .form-check-input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.forgot-password {
+  color: #64b5f6;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.forgot-password:hover {
+  color: #42a5f5;
+  text-decoration: underline;
+}
+
+.login-button {
+  background-color: #00c853;
+  border: none;
+  padding: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.login-button:hover {
+  background-color: #00b248;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.brand-highlight {
+  color: #00e676;
+}
+
+.brand-bold {
+  font-weight: 600;
+}
+
+.developer-highlight {
+  color: #64b5f6;
+  font-weight: 500;
+}
+
+.time-box {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .status-info, .market-status {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .login-card {
+    max-width: 100%;
+  }
+  
+  .login-container {
+    padding: 15px;
+  }
+}

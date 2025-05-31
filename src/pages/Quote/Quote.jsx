@@ -1,7 +1,6 @@
-import React from 'react';
 import { Typography } from '@mui/material';
 
-const QuotePanel = () => {
+const Quote = () => {
   return (
     <div style={{ padding: '20px' }}>
       <Typography variant="h6">Quote Panel</Typography>
@@ -10,4 +9,4 @@ const QuotePanel = () => {
   );
 };
 
-export default QuotePanel;
+export default Quote;

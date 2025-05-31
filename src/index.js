@@ -5,6 +5,7 @@ import App from './App';
 import ThemeProvider from './components/Theme/ThemeContext';
 import reportWebVitals from './reportWebVitals';
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

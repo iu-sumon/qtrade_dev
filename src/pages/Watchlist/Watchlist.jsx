@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import './css/watchlist.css';
+import { useEffect, useState } from 'react';
+import '../Watchlist/Watchlist.css';
 
 const initialSymbols = ['AAPL', 'GOOG', 'MSFT', 'AMZN', 'TSLA'];
 
@@ -65,7 +65,7 @@ const columns = [
   { field: 'oneWChPct', headerName: '1W CHG%', width: 110 },
 ];
 
-const WatchlistPanel = () => {
+const Watchlist = () => {
   const [rows, setRows] = useState(initialSymbols.map(generateRandomRow));
   const [flashingCells, setFlashingCells] = useState({});
   const [newSymbol, setNewSymbol] = useState('');
@@ -156,4 +156,4 @@ const WatchlistPanel = () => {
   );
 };
 
-export default WatchlistPanel;
+export default Watchlist;

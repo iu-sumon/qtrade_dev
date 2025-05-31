@@ -1,7 +1,6 @@
-import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 
-const MarketWatchPanel = () => {
+const MarketWatch = () => {
   const data = [
     { symbol: 'NIFTY 50', last: 22147.00, change: 21.05, percentChange: 0.10 },
     { symbol: 'SENSEX', last: 73097.28, change: 89.64, percentChange: 0.12 },
@@ -39,4 +38,4 @@ const MarketWatchPanel = () => {
   );
 };
 
-export default MarketWatchPanel;
+export default MarketWatch;

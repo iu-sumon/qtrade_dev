@@ -1,52 +1,58 @@
-import React, { useState, useRef } from 'react';
-import { Layout, Model } from 'flexlayout-react';
-import 'flexlayout-react/style/light.css';
-import './App.css';
-import defaultLayout from './layouts/defaultLayout.json';
-import ChartPanel from './components/ChartPanel';
-import WatchlistPanel from './components/WatchlistPanel';
-import MarketWatchPanel from './components/MarketWatchPanel';
-import MarketDepthPanel from './components/MarketDepthPanel';
-import QuotePanel from './components/QuotePanel';
-import NewsPanel from './components/NewsPanel';
-import Toolbar from './components/Toolbar';
-import { MenuItem, Select, FormControl, InputLabel } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Layout, Model } from 'flexlayout-react';
+import 'flexlayout-react/style/light.css';
+import { useRef, useState } from 'react';
+import './App.css';
+import defaultLayout from './layouts/defaultLayout.json';
+import Chart from './pages/Chart/Chart';
+import MarketDepth from './pages/MarketDepth/MarketDepth';
+import MarketWatch from './pages/MarketWatch/MarketWatch';
+import News from './pages/News/News';
+import Quote from './pages/Quote/Quote';
+import Watchlist from './pages/Watchlist/Watchlist';
+import Topbar from './shared/Topbar/Topbar';
+import Login from './pages/Login/Login';
 
 // Panel configurations
 const panelConfigs = {
   chart: {
     name: "Chart",
     component: "chart",
-    factory: () => <ChartPanel />
+    factory: () => <Chart/>
   },
   watchlist: {
     name: "Watchlist",
     component: "watchlist",
-    factory: () => <WatchlistPanel />
+    factory: () => <Watchlist />
   },
   marketWatch: {
     name: "Market Watch",
     component: "marketWatch",
-    factory: () => <MarketWatchPanel />
+    factory: () => <MarketWatch />
   },
   marketDepth: {
     name: "Market Depth",
     component: "marketDepth",
-    factory: () => <MarketDepthPanel />
+    factory: () => <MarketDepth />
   },
   quote: {
     name: "Quote",
     component: "quote",
-    factory: () => <QuotePanel />
+    factory: () => <Quote />
   },
   news: {
     name: "News",
     component: "news",
-    factory: () => <NewsPanel />
+    factory: () => <News />
   }
+  // ,
+  // login: {
+  //   name: "Login",
+  //   component: "login",
+  //   factory: () => <Login />
+  // }
 };
 
 function App() {
@@ -54,6 +60,7 @@ function App() {
   const [model, setModel] = useState(Model.fromJson(defaultLayout));
   const [selectedPanel, setSelectedPanel] = useState('');
   const [activeSection, setActiveSection] = useState('trade'); // default is trade
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state
 
   const factory = (node) => {
     const component = node.getComponent();
@@ -84,6 +91,10 @@ function App() {
     setSelectedPanel('');
   };
 
+  if (!isLoggedIn) {
+    return <Login onLogin={() => setIsLoggedIn(true)} />;
+  }
+
   return (
     <div className="app-container" style={{ display: 'flex', height: '100vh' }}>
       {/* Sidebar */}
@@ -113,13 +124,12 @@ function App() {
 
       {/* Main content */}
       <div className="main-content" style={{ flexGrow: 1 }}>
-        <Toolbar
+        <Topbar
           panelConfigs={panelConfigs}
           selectedPanel={selectedPanel}
           setSelectedPanel={setSelectedPanel}
           addNewTab={addNewTab}
         />
-
         {/* Panel Selector */}
         {activeSection === 'trade' && (
           <> 

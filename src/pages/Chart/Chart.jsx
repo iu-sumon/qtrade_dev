@@ -7,7 +7,7 @@ import 'echarts/lib/component/legend';
 import 'echarts/lib/component/grid';
 import 'echarts/lib/component/dataZoom';
 
-const ChartPanel = () => {
+const Chart = () => {
   const chartRef = useRef(null);
   const upColor = '#ec0000';
   const upBorderColor = '#8A0000';
@@ -304,4 +304,4 @@ const ChartPanel = () => {
   );
 };
 
-export default ChartPanel;
+export default Chart;

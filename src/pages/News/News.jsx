@@ -1,7 +1,6 @@
-import React from 'react';
 import { List, ListItem, ListItemText, Typography } from '@mui/material';
 
-const NewsPanel = () => {
+const News = () => {
   const newsItems = [
     { title: 'Market Update', summary: 'Stocks rise on positive earnings reports' },
     { title: 'Economic Report', summary: 'Inflation shows signs of cooling' },
@@ -22,4 +21,4 @@ const NewsPanel = () => {
   );
 };
 
-export default NewsPanel;
+export default News;

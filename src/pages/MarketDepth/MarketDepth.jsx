@@ -1,7 +1,6 @@
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-const MarketDepthPanel = () => {
+const MarketDepth = () => {
   const bids = [
     { price: 182.50, quantity: 1200 },
     { price: 182.45, quantity: 850 },
@@ -42,4 +41,4 @@ const MarketDepthPanel = () => {
   );
 };
 
-export default MarketDepthPanel;
+export default MarketDepth;
